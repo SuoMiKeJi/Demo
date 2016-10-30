@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.lizhaoweb.demo.spring.mvc.mapper.read.TotalDataReadMapper">
+    <select id="getByGPSID" resultType="totalData" parameterType="searchTotalData">
+        SELECT ID AS gpsId,
+        MAvgTime AS monthAvgTime,
+        TimePerc AS monthAvgTimePercentage,
+        MAvgMiles AS monthAvgMileage,
+        MilesPerc AS monthAvgMileagePercentage,
+        Fatigue AS fatigueDrivingProbability,
+        FatiguePerc AS fatigueDrivingProbabilityPercentage,
+        999Speed AS maxSpeed,
+        AvgSpeed AS avgSpeed,
+        SpeedPerc AS avgSpeedPercentage,
+        999Acc AS maxAcceleration,
+        AvgAccSpeed AS avgAcceleration,
+        AccPerc AS avgAccelerationPercentage,
+        999Dcc AS maxDeceleration,
+        AvgDcc AS avgDeceleration,
+        DccPerc AS avgDecelerationPercentage,
+        Dawn AS earlyMorningPercentage,
+        AMRush AS morningPeakPercentage,
+        Day AS dayPercentage,
+        PMRush AS evenignPeakPercentage,
+        Night AS nightPercentage
+        FROM totaldata WHERE ID=#{gpsId}
+    </select>
+</mapper>
